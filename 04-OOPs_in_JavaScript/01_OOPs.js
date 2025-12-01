@@ -12,7 +12,7 @@ class Vehicle {
         this.color = color; // Assigning color
     }
 
-    info = () => { // Method to display vehicle information
+    info() { // Method to display vehicle information
         console.log(`You have a ${this.brand} in ${this.color} color.`);
     }
 }
