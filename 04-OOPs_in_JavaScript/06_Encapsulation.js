@@ -1,36 +1,65 @@
+/*
+   ------------------------------------------------------------
+   This file demonstrates **Encapsulation** in JavaScript.
+   What you learn inside:
+   - Private fields (#)
+   - Private methods
+   - Public methods
+   - Getters & Setters
+   - Constructor validation
+   - Why encapsulation is useful
+   ------------------------------------------------------------
+*/
+
+
+// ========================= STUDENT CLASS =========================
+/*
+   ▶ Encapsulation Idea:
+     - #marks and #grade must be hidden
+     - Only the class can calculate the grade internally
+     - User can read marks/grade, but cannot change them directly
+*/
+
 class Student {
+
     #marks;   // private
     #grade;   // private
-    name;    // public
+    name;     // public
 
     constructor(name, marks) {
-        this.name = name;      // public
-        this.#marks = marks;   // private
+        // Constructor CAN assign values to private fields
+        this.name = name;
+        this.#marks = marks;
         this.#updateGrade();   // private method
     }
 
+    // ---------------- Private Method ----------------
     #updateGrade() {
         if (this.#marks >= 80) this.#grade = "A";
         else if (this.#marks >= 60) this.#grade = "B";
         else this.#grade = "C";
     }
 
-    getMarks() {
+    // ---------------- Public Methods ----------------
+    getMarks() {              // normal getter method
         return this.#marks;
     }
 
-    getGrade() {
+    getGrade() {              // normal getter method
         return this.#grade;
     }
 
-    setMarks(m) {
+    setMarks(m) {             // normal setter method
         if (m >= 0 && m <= 100) {
             this.#marks = m;
             this.#updateGrade();
+        } else {
+            console.error("Invalid marks! Must be 0–100.");
         }
     }
 }
 
+// =================== STUDENT USAGE ===================
 let s = new Student("Ayan", 85);
 
 console.log(s.getMarks()); // 85
@@ -40,63 +69,114 @@ s.setMarks(50);
 console.log(s.getMarks()); // 50
 console.log(s.getGrade()); // C
 
-console.log(`\n\n`);
+console.log("\n\n");
 
-// Practice Quiz.
+
+
+// ======================== PHONE CLASS =========================
+/*
+   ▶ Practice Quiz Based on Encapsulation
+     - #Battery and #PIN must stay hidden
+     - Validate battery and PIN inside constructor
+     - Use private methods for validation
+     - Provide one getter and one setter
+*/
+
 class Phone {
-    // Private.
-    #Battery;
-    #PIN
 
-    // Public.
+    // Private fields
+    #Battery;
+    #PIN;
+
+    // Public fields
     brand;
     model;
 
-    // Constructor.
     constructor(brand, model, battery, pin) {
         this.brand = brand;
         this.model = model;
+
+        // Constructor calling private methods
         this.#validateBattery(battery);
         this.#validatePIN(pin);
     }
 
-    // Private Methods ...
-    #validateBattery (battery) {
-        if (battery >= 100)
-            this.#Battery = 100;
-        else if (battery < 0)
-            this.#Battery = 0;
-        else
-            this.#Battery = battery;
+
+    // ----------------- Private Methods -----------------
+
+    #validateBattery(battery) {
+        /*
+           IMPORTANT:
+           Constructor CAN assign private values.
+           But we validate first to keep the object clean.
+        */
+
+        if (battery > 100) this.#Battery = 100;
+        else if (battery < 0) this.#Battery = 0;
+        else this.#Battery = battery;
     }
 
-    #validatePIN (pin) {
-        if (String(pin).length != 4)
-            console.error("Invalid PIN !");
-        else
+
+    #validatePIN(pin) {
+        if (String(pin).length !== 4) {
+            console.error("Invalid PIN!");
+        } else {
             this.#PIN = pin;
-    }
-
-    // Getter
-    get batteryStatus () {
-        return `Battery: ${this.#Battery}%`
-    }
-
-    // Setter
-    set updatePin (pin) {
-        if (String(pin).length != 4) {
-            console.log("Invalid PIN !");
         }
-        else {
+    }
+
+
+    // ---------------------- Getter ----------------------
+    get batteryStatus() {
+        // Getter allows READING private fields safely
+        return `Battery: ${this.#Battery}%`;
+    }
+
+
+    // ---------------------- Setter ----------------------
+    set updatePin(pin) {
+        // Allow UPDATING private field with validation
+        if (String(pin).length !== 4) {
+            console.error("Invalid PIN!");
+        } else {
             this.#PIN = pin;
             console.log("PIN updated successfully");
         }
     }
 }
 
-const p = new Phone("Apple", "iPhone 15", 100, 9999); // Object
+// ======================== PHONE USAGE =========================
 
-console.log(p.batteryStatus);    // Battery: 100%
-p.updatePin = 1234;              // valid
-p.updatePin = 77;                // ERROR
-console.log(p.batteryStatus);
+const p = new Phone("Apple", "iPhone 15", 100, 9999);
+
+console.log(p.batteryStatus);  // Battery: 100%
+
+p.updatePin = 1234;            // Valid PIN
+p.updatePin = 77;              // Invalid PIN
+
+console.log(p.batteryStatus);  // Battery unchanged
+
+
+// ======================== KEY NOTES =========================
+/*
+  1. Constructor CAN assign private fields (#)
+     ✔ this.#PIN = pin;
+     ✔ this.#Battery = battery;
+
+  2. Private fields (#something) CANNOT be accessed outside class
+     ❌ p.#PIN  → ERROR
+
+  3. Getters:
+       - Used to READ private fields safely
+       - Called without parentheses
+         ✔ p.batteryStatus
+
+  4. Setters:
+       - Used to UPDATE private fields safely
+       - Called like assigning a value
+         ✔ p.updatePin = 1234;
+
+  5. Methods vs Getters/Setters:
+       - Methods = full control (your choice)
+       - Getter/Setter = clean, property-like access
+*/
