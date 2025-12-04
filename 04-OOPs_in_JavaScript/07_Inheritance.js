@@ -78,6 +78,7 @@ myCar.info();
 myCar.carSummary(); // Output: Summary: BMW car in Black color, 4 doors, 4 wheels
 
 
+
 // ------------------- Notes -------------------
 
 // 1. Inheritance is done using "extends"
