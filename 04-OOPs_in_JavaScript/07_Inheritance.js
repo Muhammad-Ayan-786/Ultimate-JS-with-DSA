@@ -1,3 +1,15 @@
+/* <---------------------- Inheritance in JavaScript ------------------------
+
+Inheritance = One class (child) gets properties & methods from another (parent).
+
+We use:
+- extends  → makes a child class inherit from a parent
+- super()  → calls the parent's constructor
+- Method overriding → child replaces parent's method with its own version
+
+Goal: Reuse code, avoid duplication, and build class hierarchies.
+--------------------------------------------------------------------------*/
+
 /*
    This file demonstrates JavaScript OOP Inheritance
    - Parent class (Vehicle)
