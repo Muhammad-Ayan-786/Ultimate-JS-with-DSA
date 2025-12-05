@@ -1,3 +1,16 @@
+/* <---------------------- Encapsulation in JavaScript ----------------------
+
+Encapsulation = Bundling data + methods inside a class AND controlling access.
+
+We use:
+- Private fields (#data)
+- Private methods (#method)
+- Getters/Setters to safely read or update values
+- Public methods for controlled interaction
+
+Goal: Protect data from direct modification and maintain object safety.
+--------------------------------------------------------------------------*/
+
 /*
    ------------------------------------------------------------
    This file demonstrates **Encapsulation** in JavaScript.
