@@ -5,6 +5,7 @@ INPUT: "the sky is blue"        ----->>>>>      OUTPUT: "blue is sky the"
 INPUT: "   hello world  "       ----->>>>>      OUTPUT: "world hello"
 INPUT: "a good   example"       ----->>>>>      OUTPUT: "example good a"
 */
+
 class ReverseStack {
     constructor() {
         this.stack = [];
