@@ -1,4 +1,4 @@
-console.log("Hello World");
+console.log("Hello World from Script Tag");
 
 let a = 4;
 let b = 5;
