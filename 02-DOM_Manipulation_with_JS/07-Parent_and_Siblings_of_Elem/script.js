@@ -27,8 +27,8 @@ Parent node -> The element that contains the current element is called its paren
 ______________________________
 */
 
-console.log(document.body.firstChild);
-const a = document.body.firstChild;
+const a = document.body.firstChild.nextSibling;
+console.log(a);
 
 console.log(a.parentNode); // Returns the parent node of an element
 console.log(a.parentElement); // Returns the parent element of an element
