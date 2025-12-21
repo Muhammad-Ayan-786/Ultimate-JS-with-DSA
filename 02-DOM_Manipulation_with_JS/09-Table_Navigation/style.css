@@ -1,0 +1,110 @@
+:root {
+    --dark-bg-gradient: linear-gradient(90deg, #243e49, #0f2027, #203a43, #2c5364, #2c5364, #203a43, #0f2027, #243e49);
+    --table-container-bg: rgba(34, 40, 49, 0.93);
+    --th-color: #278d8d;
+    --td: #0f2027;
+    --cont-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+    --radius: 1rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--dark-bg-gradient);
+    color: #ececec;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+    background: var(--table-container-bg);
+    padding: 2.5rem 2rem;
+    border-radius: var(--radius);
+    box-shadow: var(--cont-shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    text-align: center;
+}
+
+h1 {
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    color: var(--th-color);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-weight: 700;
+    font-size: 2rem;
+    border: 1px solid var(--table-container-bg);
+    padding: 1rem 2rem;
+    background-color: var(--td);
+    border-radius: 2px;
+    box-shadow: var(--cont-shadow);
+    margin-bottom: 1rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--cont-shadow);
+}
+
+th,
+td {
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid var(--th-color);
+    color: var(--td);
+    border-radius: var(--radius);
+}
+
+th {
+    background-color: var(--th-color);
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    border-radius: 2px;
+    color: var(--td);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-weight: 700;
+    font-size: 1.2rem;
+    border: 1px solid var(--table-container-bg);
+}
+
+td {
+    background-color: var(--td);
+    color: var(--th-color);
+    border-radius: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    letter-spacing: 0.2rem;
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-transform: capitalize;
+}
+
+caption {
+    padding: 1rem;
+    background-color: var(--th-color);
+    color: var(--td);
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    letter-spacing: 0.2rem;
+    border-bottom: 2px solid black;
+    border-radius: var(--radius);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    box-shadow: var(--cont-shadow);
+}
