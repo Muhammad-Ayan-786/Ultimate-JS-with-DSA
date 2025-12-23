@@ -1,0 +1,132 @@
+/* =========================
+   IMPORTING FONT
+========================= */
+
+/* Name: "Roboto Slab" | CSS : font-family: "Roboto Slab", "Segoe UI", Roboto, system-ui, sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+
+/* Name: "Poppins" | CSS : font-family: "Poppins", "Segoe UI", Roboto, system-ui, sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+/* =========================
+   GLOBAL RESET
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =========================
+   ROOT VARIABLES
+========================= */
+:root {
+    --bg-main: #0d0f20;
+    --bg-panel: rgba(255, 255, 255, 0.05);
+
+    --accent-primary: #ff5c8d;
+    --accent-secondary: #6fafff;
+    --accent-highlight: #fcd000;
+
+    --text-main: #e8ebff;
+    --text-muted: #aab2ff;
+
+    --shadow-deep: 0 20px 55px rgba(0, 0, 0, 0.55);
+    --shadow-glow-primary: 0 0 40px rgba(255, 92, 141, 0.55);
+    --shadow-glow-secondary: 0 0 40px rgba(111, 175, 255, 0.55);
+
+    --radius-xl: 2.2rem;
+    --radius-md: 1.2rem;
+}
+
+/* =========================
+   BASE LAYOUT
+========================= */
+html,
+body {
+    width: 100vw;
+    height: 100vh;
+    font-family: "Segoe UI", Roboto, system-ui, sans-serif;
+    background:
+        radial-gradient(circle at 25% 20%, #ff5c8d33, transparent 35%),
+        radial-gradient(circle at 80% 70%, #6fafff33, transparent 40%),
+        linear-gradient(180deg, var(--bg-main), #0a0b1a);
+    color: var(--text-main);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* =========================
+   CONTAINER BOX
+========================= */
+.container {
+    width: 60vw;
+    height: 45vh;
+
+    background: var(--bg-panel);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border-radius: var(--radius-xl);
+    border: 1.5px solid rgba(255, 255, 255, 0.25);
+
+    box-shadow:
+        var(--shadow-deep),
+        var(--shadow-glow-primary),
+        var(--shadow-glow-secondary);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+
+    padding: 2rem;
+    position: relative;
+
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* =========================
+   H1 STYLE
+========================= */
+.container h1 {
+    font-size: 2.2rem;
+    letter-spacing: 0.12rem;
+    text-align: center;
+
+    background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 14px rgba(255, 92, 141, 0.25),
+                 0 2px 14px rgba(111, 175, 255, 0.25);
+}
+
+/* =========================
+   BG-CLASS VISUAL (when toggled)
+========================= */
+.bg-class {
+    background: linear-gradient(135deg, var(--accent-primary)33, var(--accent-secondary)33);
+    border: 2px solid var(--accent-highlight);
+    box-shadow:
+        0 0 25px var(--accent-primary),
+        0 0 35px var(--accent-secondary),
+        0 0 50px var(--accent-highlight);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+    .container {
+        width: 85vw;
+        height: 50vh;
+    }
+
+    .container h1 {
+        font-size: 1.7rem;
+    }
+}
