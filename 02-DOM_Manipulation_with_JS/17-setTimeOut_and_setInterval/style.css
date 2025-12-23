@@ -1,0 +1,177 @@
+/* =========================
+   IMPORTING FONT
+========================= */
+
+/* Name: "Roboto Slab" | CSS : font-family: "Roboto Slab", "Segoe UI", Roboto, system-ui, sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+
+/* Name: "Poppins" | CSS : font-family: "Poppins", "Segoe UI", Roboto, system-ui, sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+/* =========================
+   GLOBAL RESET
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =========================
+   ROOT VARIABLES
+========================= */
+:root {
+    --bg-main: #050510;
+    --bg-glass: rgba(255, 255, 255, 0.06);
+
+    --accent-timeout: #ff8a00;
+    --accent-interval: #7b5cff;
+    --accent-title: #00f5d4;
+
+    --text-main: #f1f1ff;
+    --text-muted: #a2a6ff;
+
+    --shadow-soft: 0 10px 35px rgba(0, 0, 0, 0.55);
+    --shadow-glow-time: 0 0 35px rgba(255, 138, 0, 0.6);
+    --shadow-glow-interval: 0 0 35px rgba(123, 92, 255, 0.6);
+
+    --radius-lg: 2rem;
+    --radius-md: 1.2rem;
+}
+
+/* =========================
+   BODY LAYOUT
+========================= */
+html,
+body {
+    width: 100%;
+    height: 100%;
+    font-family: "Poppins", "Segoe UI", system-ui, sans-serif;
+    background:
+        radial-gradient(circle at top left, #7b5cff33, transparent 40%),
+        radial-gradient(circle at bottom right, #ff8a0033, transparent 45%),
+        linear-gradient(180deg, var(--bg-main), #020214);
+    color: var(--text-main);
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+#title-section,
+#timeout-section,
+#interval-section {
+    max-width: 1200px;
+    width: 100%;
+}
+
+#title-section,
+#timeout-section,
+#interval-section {
+    margin: 0 auto;
+}
+
+
+/* =========================
+   TITLE SECTION
+========================= */
+#title-section {
+    background: linear-gradient(135deg, #00f5d433, #7b5cff33);
+    border-radius: var(--radius-lg);
+    height: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-soft), 0 0 45px #00f5d466;
+}
+
+#title-section h1 {
+    font-size: 2.8rem;
+    letter-spacing: 0.15rem;
+    background: linear-gradient(90deg, var(--accent-title), #7b5cff);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 25px #00f5d488;
+    transition: all 0.5s ease;
+}
+
+/* =========================
+   TIMEOUT SECTION
+========================= */
+#timeout-section {
+    background: var(--bg-glass);
+    backdrop-filter: blur(14px);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+
+    box-shadow: var(--shadow-soft), var(--shadow-glow-time);
+    border: 1px solid rgba(255, 138, 0, 0.35);
+}
+
+#timeout-section h2 {
+    color: var(--accent-timeout);
+    letter-spacing: 0.1rem;
+}
+
+#timeout-alert,
+#timeout-sum {
+    color: var(--text-muted);
+    padding-left: 0.5rem;
+}
+
+/* =========================
+   INTERVAL SECTION
+========================= */
+#interval-section {
+    background: var(--bg-glass);
+    backdrop-filter: blur(14px);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+
+    box-shadow: var(--shadow-soft), var(--shadow-glow-interval);
+    border: 1px solid rgba(123, 92, 255, 0.35);
+}
+
+#interval-section h2 {
+    color: var(--accent-interval);
+    letter-spacing: 0.1rem;
+}
+
+#counter {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 0 20px #7b5cff;
+}
+
+#interval-math {
+    color: var(--text-muted);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+    body {
+        grid-template-rows: auto auto auto;
+        overflow-y: auto;
+    }
+
+    #title-section h1 {
+        font-size: 2rem;
+        text-align: center;
+    }
+}
