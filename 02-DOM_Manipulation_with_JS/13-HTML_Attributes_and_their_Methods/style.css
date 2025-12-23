@@ -1,0 +1,179 @@
+/* =========================
+   IMPORTING FONT
+========================= */
+/* Roboto Slab */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+
+/* Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* =========================
+   GLOBAL RESET
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =========================
+   ROOT VARIABLES (MANDATORY)
+========================= */
+:root {
+    --bg-main: #0b0f1f;
+    --bg-alt: #121733;
+
+    --grad-1: linear-gradient(135deg, #ff7a18, #ffb347);
+    --grad-2: linear-gradient(135deg, #4facfe, #00f2fe);
+
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.25);
+
+    --text-main: #f3f6ff;
+    --text-soft: #cdd6ff;
+
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.45);
+    --shadow-glow-1: 0 0 30px rgba(255, 160, 80, 0.45);
+    --shadow-glow-2: 0 0 30px rgba(80, 200, 255, 0.45);
+
+    --radius-lg: 1.8rem;
+    --radius-md: 1.1rem;
+}
+
+/* =========================
+   BASE LAYOUT
+========================= */
+html,
+body {
+    width: 100vw;
+    height: 100vh;
+    font-family: "Roboto Slab", "Segoe UI", Roboto, system-ui, sans-serif;
+    background:
+        radial-gradient(circle at 20% 15%, #ff7a1833, transparent 40%),
+        radial-gradient(circle at 80% 70%, #4facfe33, transparent 45%),
+        linear-gradient(180deg, var(--bg-main), var(--bg-alt));
+    color: var(--text-main);
+    overflow: hidden;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    position: relative;
+}
+
+/* =========================
+   CONTAINERS
+========================= */
+.container {
+    width: 34vw;
+    height: 26vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    border-radius: var(--radius-lg);
+    border: 1.5px solid var(--glass-border);
+
+    box-shadow: var(--shadow-soft);
+    position: relative;
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+/* =========================
+   FIRST CONTAINER STYLE
+========================= */
+#firstDiv {
+    box-shadow:
+        var(--shadow-soft),
+        var(--shadow-glow-1);
+}
+
+#firstDiv::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    background: var(--grad-1);
+    z-index: -1;
+    filter: blur(22px);
+    opacity: 0.65;
+}
+
+/* =========================
+   SECOND CONTAINER STYLE
+========================= */
+#secondDiv {
+    box-shadow:
+        var(--shadow-soft),
+        var(--shadow-glow-2);
+}
+
+#secondDiv::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    background: var(--grad-2);
+    z-index: -1;
+    filter: blur(22px);
+    opacity: 0.65;
+}
+
+/* =========================
+   TEXT (p)
+========================= */
+.container p {
+    font-size: 1.25rem;
+    letter-spacing: 0.05rem;
+    text-align: center;
+    color: var(--text-soft);
+    line-height: 1.6;
+
+    padding: 1.5rem;
+    z-index: 1;
+}
+
+/* =========================
+   HOVER EFFECTS
+========================= */
+.container:hover {
+    transform: translateY(-14px) scale(1.04);
+}
+
+#firstDiv:hover {
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.55),
+        0 0 45px rgba(255, 160, 80, 0.75);
+}
+
+#secondDiv:hover {
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.55),
+        0 0 45px rgba(80, 200, 255, 0.75);
+}
+
+/* =========================
+   RESPONSIVE (STILL 100vh)
+========================= */
+@media (max-width: 900px) {
+    body {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .container {
+        width: 80vw;
+        height: 22vh;
+    }
+}
