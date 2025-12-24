@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser Events</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Browser Events</h1>
+    <div id="container">
+        <div class="content-box"
+            onmouseenter="
+                const myConsole = document.getElementById('para-log');
+                myConsole.innerHTML = 'Mouse Enter in Box';"
+
+            onmouseleave="
+                const myConsole = document.getElementById('para-log');
+                myConsole.innerHTML = 'Mouse Leave the Box';">
+
+            <h1 id="title">Click Button to see ...</h1>
+            <p>This Web-page show how browser events works</p>
+            <button
+                onclick="document.getElementById('title').innerHTML = 'Welcome To DOM Events';">Show Name</button>
+
+            <div class="events-show-cont">
+                <h3>Document's Console :</h3>
+                <p id="para-log">Hi, I'm Console</p>
+                <p id="count-log"></p>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
