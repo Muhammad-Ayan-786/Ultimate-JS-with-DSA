@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>addEventListener & removeEventListener</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="app">
+
+        <header class="app-header">
+            <h1>addEventListener & removeEventListener</h1>
+            <p>Learning how event listeners work in JavaScript</p>
+        </header>
+
+        <section class="card">
+            <h2>1️⃣ Event Listeners (Without Reference)</h2>
+            <p>
+                Listeners are not attached using function references.
+                These <strong>can not be removed</strong>.
+            </p>
+
+            <button id="anon-btn">Click Me</button>
+            <button id="remove-anon">Try Removing (Won't Work)</button>
+
+            <div class="log-box">
+                <p id="anon-log">Waiting for click...</p>
+            </div>
+
+        </section>
+
+        <section class="card">
+            <h2>2️⃣ Event Listeners (With Reference)</h2>
+            <p>
+                Listeners are attached using function references.
+                These <strong>can be removed</strong>.
+            </p>
+
+            <div class="click-cont">
+                <p id="score">Click : 0</p>
+            </div>
+
+            <div class="btn-group">
+                <button id="add-listeners">Add Listener</button>
+                <button id="remove-listener">Remove First Listener</button>
+                <button id="named-btn">Click Me</button>
+            </div>
+
+            <div class="log-box">
+                <p id="named-log">No clicks yet</p>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>3️⃣ Event Object</h2>
+            <p>Click the button and check the console.</p>
+
+            <button id="event-btn">Show Event Object</button>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
