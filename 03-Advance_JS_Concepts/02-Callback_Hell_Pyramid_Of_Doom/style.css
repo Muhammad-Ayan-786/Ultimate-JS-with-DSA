@@ -1,0 +1,139 @@
+/* =========================
+   IMPORTING FONT
+========================= */
+
+/* Name: "Roboto Slab" | CSS : font-family: "Roboto Slab", "Segoe UI", Roboto, system-ui, sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+
+/* Name: "Poppins" | CSS : font-family: "Poppins", "Segoe UI", Roboto, system-ui, sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+/* ================= ROOT VARIABLES ================= */
+:root {
+    --bg-main: #090b14;
+    --bg-glass: rgba(24, 28, 52, 0.82);
+
+    --grad-1: #ff7a18;
+    --grad-2: #ff3d81;
+    --grad-3: #6a5cff;
+
+    --text-main: #f0f2ff;
+    --text-sub: #b3bcff;
+
+    --radius-lg: 1.7rem;
+
+    --glow-deep: 0 0 45px #ff3d8155, 0 0 80px #6a5cff33;
+}
+
+/* ================= RESET ================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ================= BASE ================= */
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    font-family: "Poppins", "Segoe UI", system-ui, sans-serif;
+    color: var(--text-main);
+
+    background:
+        radial-gradient(circle at 15% 20%, #ff7a1822, transparent 40%),
+        radial-gradient(circle at 85% 75%, #6a5cff22, transparent 45%),
+        linear-gradient(160deg, #04050d, var(--bg-main));
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.4rem;
+    text-align: center;
+}
+
+/* ================= ATMOSPHERE ================= */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background:
+        repeating-linear-gradient(
+            45deg,
+            rgba(255, 61, 129, 0.04),
+            rgba(255, 61, 129, 0.04) 12px,
+            transparent 12px,
+            transparent 24px
+        );
+    opacity: 0.6;
+}
+
+/* ================= HEADING ================= */
+
+h3 {
+    font-size: 3.5rem;
+    letter-spacing: 0.2rem;
+
+    background: linear-gradient(
+        90deg,
+        var(--grad-1),
+        var(--grad-2),
+        var(--grad-3)
+    );
+    background-clip: text;
+    color: transparent;
+
+    text-shadow:
+        0 0 18px #ff7a1866,
+        0 0 30px #6a5cff55;
+}
+
+/* ================= DESCRIPTION CARD ================= */
+
+p {
+    max-width: 720px;
+    padding: 1.8rem 2.2rem;
+
+    background: var(--bg-glass);
+    backdrop-filter: blur(15px);
+
+    border-radius: var(--radius-lg);
+    border-left: 6px solid var(--grad-2);
+
+    box-shadow: var(--glow-deep);
+
+    color: var(--text-sub);
+    font-size: 1.15rem;
+    line-height: 1.95;
+    letter-spacing: 0.05rem;
+
+    position: relative;
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+p::before {
+    content: "↳ ↳ ↳";
+    position: absolute;
+    top: -1.2rem;
+    left: 1.6rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.4rem;
+    color: #ff3d81aa;
+}
+
+p:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow:
+        0 0 65px #ff3d81aa,
+        0 0 95px #6a5cff66;
+}
