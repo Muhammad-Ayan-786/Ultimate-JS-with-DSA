@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Promises</h1>
+    <p>Promises are a way to handle asynchronous operations in JavaScript. They provide a way to handle the success and failure of an asynchronous operation. Promises are often used with async/await syntax.</p>
+
+    <h2>Promises Returned Properties</h2>
+    <p>The Promise Object returned by the new Promise constructor has these following properties.</p>
+    <span>NOTE :</span>
+    <ul>
+        <li>Promise state & result are internal</li>
+        <li>You cannot access them directly like promise.state</li>
+        <li>They are shown in DevTools for debugging only</li>
+    </ul>
+
+    <ol>
+        <li>state : Initially pending, then changes to either "fulfilled" when resolve is called or "rejected" when reject is called.</li>
+
+        <li>result : Initially undefined, then changes to either the value passed to resolve <code>resolve(value)</code> or the value passed to reject <code>reject(value)</code>.</li>
+    </ol>
+
+    <script src="script.js"></script>
+</body>
+</html>
