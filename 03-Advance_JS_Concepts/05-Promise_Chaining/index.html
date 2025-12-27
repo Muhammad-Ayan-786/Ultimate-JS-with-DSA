@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise Chaining</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h3>Promise Chaining</h3>
+    <p>
+        Promise chaining is a technique where you can use the result of one promise to create a new promise. This is useful when you want to perform multiple asynchronous operations in sequence.
+    </p>    
+
+    <h3>Chaining Promise Example Code</h3>
+    <div class="code">
+        <code>
+            const promise = new Promise((resolve, reject) => { // Initial promise
+                setTimeout(() => resolve(1), 1000);
+            });
+
+            promise.then((result) => {
+                alert(result);
+
+                return new Promise((resolve, reject) => {
+                    setTimeout(() => resolve(result + 1), 1000);
+                });
+            }).then ...
+        </code>
+    </div>
+
+    <p>The flow of the above code is as follows :</p>
+    <ol>
+        <li>The Initial Promise is resolved after 1 second.</li>
+        <li>The next <span>.then()</span> handler is then called, which returns a new Promise (resolved with 2,after 1 second).</li>
+        <li>The next <span>.then()</span> gets the result of the previous one and this keeps on going.</li>
+    </ol>
+
+    <p>
+        Every call to <span>.then()</span> returns a new Promise, whose value is passed to the next <span>.then()</span> and so on.
+    </p>
+
+    <script src="script.js"></script>
+    <script src="loadScriptWithPromise.js"></script>
+</body>
+</html>
