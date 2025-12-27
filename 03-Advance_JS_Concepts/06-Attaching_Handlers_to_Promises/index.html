@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attaching Handlers to Promises</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Attaching Handlers to Promises</h1>
+    <p>We can attach multiple handlers to one Promise. They don't pass the result to each other; instead they process it independently.</p>
+
+    <div class="container">
+        <p>let p is a promise</p>
+        <br>
+        <p>p.then(handler 1)</p>
+        <p>p.then(handler 2)</p>
+        <p>p.then(handler 3)</p>
+
+        <p>All handlers will "<span>Runs Independently</span>"</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
