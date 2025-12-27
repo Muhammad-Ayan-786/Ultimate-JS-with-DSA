@@ -1,0 +1,140 @@
+/* =========================
+   IMPORTING FONT
+========================= */
+
+/* Name: "Roboto Slab" | CSS : font-family: "Roboto Slab", "Segoe UI", Roboto, system-ui, sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+
+/* Name: "Poppins" | CSS : font-family: "Poppins", "Segoe UI", Roboto, system-ui, sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+/* ================= ROOT VARIABLES ================= */
+:root {
+    --bg-main: #0a0f1f;
+    --bg-card: rgba(18, 28, 65, 0.75);
+
+    --resolve: #3ddc97;
+    --reject: #ff6b6b;
+    --accent: #5da9ff;
+
+    --text-main: #f1f4ff;
+    --text-sub: #cbd3ff;
+
+    --radius: 1.2rem;
+}
+
+/* ================= RESET ================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ================= BASE ================= */
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    font-family: "Poppins", "Segoe UI", system-ui, sans-serif;
+    color: var(--text-main);
+
+    background:
+        radial-gradient(circle at 25% 20%, #5da9ff22, transparent 40%),
+        radial-gradient(circle at 75% 80%, #ff6b6b22, transparent 40%),
+        linear-gradient(160deg, #050816, var(--bg-main));
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 3rem 1.5rem;
+}
+
+/* ================= HEADING ================= */
+
+h3 {
+    font-size: 3.5rem;
+    letter-spacing: 0.16rem;
+
+    background: linear-gradient(
+        90deg,
+        var(--resolve),
+        var(--accent),
+        var(--reject)
+    );
+    background-clip: text;
+    color: transparent;
+
+    text-shadow: 0 0 25px #5da9ff66;
+}
+
+/* ================= MAIN CARD ================= */
+
+p {
+    max-width: 760px;
+    padding: 2rem 2.2rem;
+
+    background: var(--bg-card);
+    backdrop-filter: blur(14px);
+
+    border-radius: var(--radius);
+    position: relative;
+
+    line-height: 1.9;
+    font-size: 1.25rem;
+    color: var(--text-sub);
+
+    box-shadow: 0 0 45px #5da9ff33;
+}
+
+/* left = success, right = error */
+p::before,
+p::after {
+    content: "";
+    position: absolute;
+    top: 12%;
+    bottom: 12%;
+    width: 5px;
+    border-radius: 10px;
+}
+
+p::before {
+    left: 0;
+    background: linear-gradient(var(--resolve), transparent);
+}
+
+p::after {
+    right: 0;
+    background: linear-gradient(var(--reject), transparent);
+}
+
+/* ================= CODE ================= */
+
+code {
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.4rem;
+
+    background: #111a3a;
+    color: #9fd4ff;
+
+    font-family: "Fira Code", monospace;
+    font-size: 0.95rem;
+}
+
+/* ================= INTERACTION ================= */
+
+p {
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+p:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 0 40px #3ddc9744,
+        0 0 40px #ff6b6b33;
+}
