@@ -1,0 +1,129 @@
+/* =========================
+   IMPORTING FONT
+========================= */
+
+/* Name: "Roboto Slab" | CSS : font-family: "Roboto Slab", "Segoe UI", Roboto, system-ui, sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+
+/* Name: "Poppins" | CSS : font-family: "Poppins", "Segoe UI", Roboto, system-ui, sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+/* ================= ROOT ================= */
+
+:root {
+    --bg-main: #05070f;
+    --bg-glass: rgba(18, 26, 64, 0.55);
+
+    --accent-1: #5df2c1;
+    --accent-2: #7aa2ff;
+    --accent-3: #ff7ad9;
+
+    --text-main: #eef3ff;
+    --text-muted: #c7d0ff;
+
+    --radius: 1.4rem;
+}
+
+/* ================= RESET ================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ================= BASE ================= */
+
+html,
+body {
+    width: 100%;
+    min-height: 100vh;
+    font-family: "Poppins", "Segoe UI", system-ui, sans-serif;
+
+    background:
+        radial-gradient(circle at 15% 20%, rgba(255, 122, 217, 0.18), transparent 45%),
+        radial-gradient(circle at 85% 80%, rgba(122, 162, 255, 0.18), transparent 45%),
+        linear-gradient(160deg, #040615, var(--bg-main));
+
+    color: var(--text-main);
+}
+
+body {
+    padding: 3rem 1.5rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+/* ================= HEADING ================= */
+
+h3 {
+    font-size: 3.5rem;
+    letter-spacing: 0.12rem;
+
+    background: linear-gradient(
+        90deg,
+        var(--accent-3),
+        var(--accent-2)
+    );
+
+    background-clip: text;
+    color: transparent;
+
+    text-shadow:
+        0 0 25px #ff7ad955,
+        0 0 40px #7aa2ff44;
+}
+
+/* ================= PARAGRAPH ================= */
+
+p {
+    max-width: 900px;
+    line-height: 1.85;
+    font-size: 1.4rem;
+    color: var(--text-muted);
+
+    background: var(--bg-glass);
+    padding: 1.8rem 2.4rem;
+    border-radius: var(--radius);
+
+    box-shadow:
+        0 0 35px #000,
+        inset 0 0 18px #000;
+}
+
+/* ================= INLINE CODE ================= */
+
+p code {
+    padding: 0.25rem 0.45rem;
+    border-radius: 0.5rem;
+
+    background: rgba(255, 122, 217, 0.15);
+    color: var(--accent-3);
+    font-weight: 600;
+}
+
+/* ================= PAGE ANIMATION ================= */
+
+h3,
+p {
+    animation: fadeUp 0.6s ease both;
+}
+
+p {
+    animation-delay: 0.15s;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
