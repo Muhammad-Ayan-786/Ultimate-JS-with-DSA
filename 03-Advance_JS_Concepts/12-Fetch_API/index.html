@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch API</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main">
+        <h1 class="main-title">Fetch API</h1>
+        <p class="main-para">fetch is used to get data over the network</p>
+
+        <p class="main-para">JavaScript can be used to send & return information from the network when needed (AJAX)</p>
+
+        <p class="AJAX-full-form main-para"><span>AJAX</span> - Asynchronous JavaScript & XML</p>
+    </div>
+
+    <div class="fetch-code">
+        <h3 class="fetch-code-title">Fetch API Syntax</h3>
+        <code>
+            let promise = fetch(url, [options]);
+            <span>Without options a get request is made</span>
+        </code>
+    </div>
+
+    <div class="step-process">
+        <h3 class="step-process-title">Getting a response is a 2-step process</h3>
+
+        <ol class="step-process-list">
+            <li>
+                <p>An object of Response class containing "<span>status</span>" & "<span>ok</span>" properties.</p>
+                <br>
+                <p><span class="properties">status</span> - The http status code, e.g. 200 for success</p>
+                <br>
+                <p><span class="properties">ok</span> - Boolean, true if the http status code is 200-299</p>
+            </li>
+
+            <li>
+                <p>After that we need to call another method to access the body in different formats :</p>
+                <br>
+                <p><code class="methods">response.text()</code> - Read & return the text.</p>
+                <br>
+                <p><code class="methods">response.json()</code> - Parse the response as JSON.</p>
+                <br>
+                <p><code class="methods">response.blob()</code> - Read & return the response as a Blob.</p>
+                <br>
+                <p><code class="methods">response.arrayBuffer()</code> - Read & return the response as an ArrayBuffer.</p>
+                <br>
+                <p><code class="methods">response.formData()</code> - Read & return the response as a FormData object.</p>
+            </li>
+        </ol>
+
+        <p class="Note"><strong>Note</strong> - We can use only one <span>body.reading method</span>. Example if we have already got the response with <code>response.text()</code> then <code>response.json()</code> won't not work.</p>
+    </div>
+
+    <div class="response-headers">
+        <h3 class="response-headers-title">Response Headers</h3>
+        <p class="response-headers-para">The response headers are available in the property : </p>
+        <code class="res-header-method">response.headers</code></p>
+    </div>
+
+    <div class="request-headers">
+        <h3 class="request-headers-title">Request Headers</h3>
+        <p class="request-headers-para">To set a request header in fetch, we can use the property :</p>
+        <code class="req-header-att">headers</code>
+
+        <div class="req-headers-code">
+            let res = fetch(url, {
+                headers: {
+                    Authorization: 'secret'
+                }
+            });
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
