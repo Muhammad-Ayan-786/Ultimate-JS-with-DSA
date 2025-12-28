@@ -1,0 +1,248 @@
+/* =========================
+   IMPORTING FONT
+========================= */
+
+/* Name: "Roboto Slab" | CSS : font-family: "Roboto Slab", "Segoe UI", Roboto, system-ui, sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+
+/* Name: "Poppins" | CSS : font-family: "Poppins", "Segoe UI", Roboto, system-ui, sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+/* ================= ROOT VARIABLES ================= */
+
+:root {
+    --bg-main: #05070f;
+    --bg-glass: rgba(18, 26, 64, 0.55);
+
+    --accent-1: #5df2c1;
+    --accent-2: #7aa2ff;
+    --accent-3: #ff7ad9;
+
+    --text-main: #eef3ff;
+    --text-muted: #c7d0ff;
+
+    --radius: 1.4rem;
+}
+
+/* ================= RESET ================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ================= BASE ================= */
+
+html,
+body {
+    width: 100%;
+    font-family: "Segoe UI", system-ui, sans-serif;
+
+    background:
+        radial-gradient(circle at 15% 20%, #5df2c122, transparent 45%),
+        radial-gradient(circle at 85% 80%, #ff7ad922, transparent 45%),
+        linear-gradient(160deg, #040615, var(--bg-main));
+
+    color: var(--text-main);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.8rem;
+    padding: 3rem 1.5rem;
+}
+
+/* ================= HEADINGS ================= */
+
+h1 {
+    font-size: 3rem;
+    letter-spacing: 0.2rem;
+
+    background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+    background-clip: text;
+    color: transparent;
+
+    text-shadow:
+        0 0 25px #5df2c155,
+        0 0 45px #7aa2ff44;
+}
+
+h2 {
+    font-size: 1.85rem;
+    letter-spacing: 0.08rem;
+    color: var(--accent-2);
+}
+
+/* ================= PARAGRAPHS ================= */
+
+p {
+    max-width: 900px;
+    line-height: 1.8;
+    font-size: 1.25rem;
+    color: var(--text-muted);
+
+    background: var(--bg-glass);
+    padding: 1.4rem 2rem;
+    border-radius: var(--radius);
+
+    box-shadow:
+        0 0 30px #000,
+        inset 0 0 18px #000;
+}
+
+/* ================= INFO SECTIONS ================= */
+
+.async_info,
+.await_info {
+    max-width: 960px;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+
+    background: rgba(255, 255, 255, 0.03);
+    padding: 2.2rem;
+    border-radius: 1.6rem;
+
+    box-shadow:
+        0 0 40px #000,
+        inset 0 0 20px #000;
+}
+
+/* ================= CODE BLOCKS ================= */
+
+code {
+    display: block;
+    white-space: pre-wrap;
+    line-height: 1.7;
+
+    background: linear-gradient(
+        135deg,
+        rgba(122, 162, 255, 0.12),
+        rgba(93, 242, 193, 0.12)
+    );
+
+    color: var(--accent-1);
+    font-size: 0.95rem;
+
+    padding: 1.4rem 1.6rem;
+    border-radius: 1.2rem;
+
+    box-shadow:
+        0 0 25px #5df2c133,
+        inset 0 0 15px #000;
+}
+
+/* ================= HIGHLIGHTS ================= */
+
+span {
+    color: var(--accent-3);
+    font-weight: 600;
+    text-shadow: 0 0 12px #ff7ad966;
+}
+
+/* ================= SUBTLE ANIMATION ================= */
+
+.async_info,
+.await_info {
+    animation: fadeUp 0.7s ease both;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================
+1.  GLOBAL VARIABLES (Scrollbar)
+========================================== */
+:root {
+    /* --- Sizing --- */
+    --sb-size: 6px;
+    --sb-radius: 999px;
+
+    /* --- Track (Dark) --- */
+    --sb-track-bg: linear-gradient(180deg, #0b0c10, #0e1018);
+
+    /* --- Thumb Gradient --- */
+    --sb-thumb-gradient: linear-gradient(180deg,
+        rgba(110, 120, 255, 0.85),
+        rgba(140, 90, 255, 0.85),
+        rgba(90, 160, 255, 0.85));
+
+    --sb-thumb-hover-gradient: linear-gradient(180deg,
+        rgba(130, 140, 255, 1),
+        rgba(160, 110, 255, 1),
+        rgba(110, 180, 255, 1));
+
+    --sb-thumb-active-gradient: linear-gradient(180deg,
+        rgba(160, 170, 255, 1),
+        rgba(190, 150, 255, 1),
+        rgba(140, 210, 255, 1));
+
+    /* --- Effects --- */
+    --sb-thumb-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.12),
+        0 4px 10px rgba(0, 0, 0, 0.45);
+
+    --sb-transition:
+        background 200ms ease,
+        opacity 200ms ease;
+}
+
+/* ==========================================
+3. WEBKIT SCROLLBAR BASE
+========================================== */
+::-webkit-scrollbar {
+    width: var(--sb-size);
+    height: var(--sb-size);
+}
+
+::-webkit-scrollbar-track {
+    background: var(--sb-track-bg);
+}
+
+/* ==========================================
+4. THUMB — DEFAULT STATE
+========================================== */
+::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-gradient);
+    border-radius: var(--sb-radius);
+    box-shadow: var(--sb-thumb-shadow);
+    transition: var(--sb-transition);
+}
+
+/* ==========================================
+5. INTERACTION STATES
+========================================== */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--sb-thumb-hover-gradient);
+}
+
+::-webkit-scrollbar-thumb:active {
+    background: var(--sb-thumb-active-gradient);
+}
+
+/* ==========================================
+6. AUTO-HIDE FEEL (DESKTOP ONLY)
+========================================== */
+@media (hover: hover) {
+    ::-webkit-scrollbar-thumb {
+        opacity: 0.6;
+    }
+
+    body:hover ::-webkit-scrollbar-thumb {
+        opacity: 1;
+    }
+}

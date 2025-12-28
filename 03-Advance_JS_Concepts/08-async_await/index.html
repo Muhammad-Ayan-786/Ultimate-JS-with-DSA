@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async & Await</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Async & Await</h1>
+    <p>There is a special syntax to workk with promises in JavaScript.</p>
+
+    <div class="async_info">
+        <p>A function can be made async by using async keyword like this :</p>
+
+        <code>
+        async function num() { // async func always returns a promise even if u return a constant
+            return 5;
+        }
+
+        num().then((value) => { // .then() can be use on async function
+            console.log(value);
+        })
+        </code>
+
+        <p>
+            An <span>async function</span> always returns a promise. Other values are wrapped in a promise automatically.
+            <br>
+            We can do something like this :
+        </p>
+
+        <code>
+            num.then((value) => {
+                console.log(value);
+            })
+        </code>
+
+        <p> So, <span>async function</span> ensures that the function returns a promise & wraps non-promises in it. </p>
+    </div>
+
+    <div class="await_info">
+        <h2>The await Keyword</h2>
+
+        <p>There is another keyword called <span>await</span> that works only inside async functions.</p>
+
+        <code>
+            let value = await promise;
+        </code>
+
+        <p>The await keyword makes JavaScript wait until that promise settles and returns its result</p>
+
+        <p>Its just more elegant syntax of getting the promise result than promise.then + its easier to read & write.</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
