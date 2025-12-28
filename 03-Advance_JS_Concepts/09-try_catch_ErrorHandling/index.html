@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Handling</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h3>Error Handling using try & catch</h3>
+    <p>Error handling is a crucial aspect of software development, where you handle the unexpected and handle the error
+        gracefully.</p>
+
+    <div class="important">
+        <p>
+            <strong>Important:</strong>
+            <code>try...catch</code> works only with <strong>synchronous</strong> code, and only catches errors that happen in the same execution context.
+            If an error occurs inside scheduled or asynchronous code (like
+            <code>setTimeout</code>), the outer <code>try...catch</code> will NOT catch it.
+        </p>
+
+        <!-- ======================================================
+         1️⃣ Synchronous code — NO error
+         ====================================================== -->
+        <div class="true-syncC-code">
+            <code>
+            try {
+                // Synchronous operation with no error
+                console.log("No errors, yeah!!");
+            } catch (error) {
+                console.log("This will not run");
+            }
+        </code>
+        </div>
+
+        <!-- ======================================================
+         2️⃣ Synchronous code — WITH error (Handled)
+         ====================================================== -->
+        <div class="false-syncS-code">
+            <code>
+            try {
+                // Synchronous error (variable is not defined)
+                console.log(Meow);
+            } catch (error) {
+                console.log("Error occurred in try-catch > console.log(Meow)");
+            }
+        </code>
+
+            <p>
+                ✔ <code>try...catch</code> <strong>will catch</strong> the error here.
+                <br>
+                The message
+                <span class="error">Error occurred in try-catch &gt; console.log(Meow)</span>
+                will be printed because <code>Meow</code> is not defined and the code runs
+                synchronously.
+            </p>
+        </div>
+
+        <!-- ======================================================
+         3️⃣ Asynchronous code — Error HANDLED correctly
+         ====================================================== -->
+        <div class="true-asyncC-code">
+            <code>
+            try {
+                // Outer try-catch does NOT help with async errors
+                setTimeout(() => {
+                    // Inner try-catch catches the error correctly
+                    try {
+                        console.log(Me);
+                    } catch (error) {
+                        console.log("Error occurred inside setTimeout");
+                    }
+                }, 3000);
+            } catch (error) {
+                console.log("This will not run");
+            }
+        </code>
+        </div>
+
+        <!-- ======================================================
+         4️⃣ Asynchronous code — Error NOT handled
+         ====================================================== -->
+        <div class="false-asyncS-code">
+            <code>
+            try {
+                // Error happens asynchronously
+                setTimeout(() => {
+                    console.log(Me);
+                }, 2000);
+            } catch (error) {
+                console.log("This will NOT catch the error");
+            }
+        </code>
+
+            <p>
+                ❌ <code>try...catch</code> will <strong>not</strong> catch the error here.
+                <br>
+                The browser will throw:
+                <span class="error">Uncaught ReferenceError: Me is not defined</span>
+                because the error happens after the <code>try</code> block has already finished executing.
+            </p>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>

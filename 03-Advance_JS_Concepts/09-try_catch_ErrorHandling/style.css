@@ -1,0 +1,280 @@
+/* =========================
+   IMPORTING FONT
+========================= */
+
+/* Name: "Roboto Slab" | CSS : font-family: "Roboto Slab", "Segoe UI", Roboto, system-ui, sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+
+/* Name: "Poppins" | CSS : font-family: "Poppins", "Segoe UI", Roboto, system-ui, sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+/* ================= ROOT VARIABLES ================= */
+
+:root {
+    --bg-main: #0d1117;
+    --bg-surface: #161b22;
+    --bg-code: #010409;
+
+    --accent-success: #3fb950;
+    --accent-error: #f85149;
+    --accent-info: #58a6ff;
+
+    --text-main: #e6edf3;
+    --text-muted: #b2d5f8;
+    --text-code: #d2a8ff;
+
+    --radius-sm: 0.6rem;
+    --radius-md: 1rem;
+
+    --border-soft: #30363d;
+}
+
+/* ================= RESET ================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ================= BASE ================= */
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    font-family: "Segoe UI", system-ui, sans-serif;
+
+    background:
+        radial-gradient(circle at 12% 18%, rgba(93, 242, 193, 0.18), transparent 45%),
+        radial-gradient(circle at 85% 78%, rgba(255, 122, 217, 0.18), transparent 45%),
+        linear-gradient(160deg, #040615, var(--bg-main));
+
+    color: var(--text-main);
+}
+
+body {
+    padding: 3rem 2rem;
+    line-height: 1.75;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ================= TYPOGRAPHY ================= */
+
+h3 {
+    margin-bottom: 1rem;
+
+    font-size: 3rem;
+    letter-spacing: 0.2rem;
+
+    background: linear-gradient(90deg, var(--accent-info), var(--text-code));
+    background-clip: text;
+    color: transparent;
+
+    text-shadow:
+        0 0 25px #5df2c155,
+        0 0 45px #7aa2ff44;
+}
+
+p {
+    margin-bottom: 1.2rem;
+    line-height: 1.8;
+    font-size: 1.25rem;
+    color: var(--text-muted);
+}
+
+/* ================= LAYOUT CONTAINER ================= */
+
+.important {
+    margin-top: 2.5rem;
+    padding: 2rem;
+    border-radius: var(--radius-md);
+
+    background: linear-gradient(
+        180deg,
+        var(--bg-surface),
+        var(--bg-main)
+    );
+
+    border: 1px solid var(--border-soft);
+}
+
+/* ================= CODE BLOCKS ================= */
+
+code {
+    display: block;
+    margin: 1.2rem 0;
+    padding: 1.2rem 1.4rem;
+
+    background: var(--bg-code);
+    color: var(--text-code);
+
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-soft);
+
+    font-family: "Fira Code", monospace;
+    font-size: 0.92rem;
+    line-height: 1.6;
+
+    overflow-x: auto;
+    white-space: pre-wrap;
+}
+
+/* Inline code */
+p code {
+    display: inline;
+    padding: 0.2rem 0.45rem;
+    margin: 0;
+    border-radius: var(--radius-sm);
+    background: var(--bg-surface);
+    color: var(--accent-error);
+    border: none;
+}
+
+/* ================= CASE SECTIONS ================= */
+
+.true-syncC-code,
+.true-asyncC-code,
+.false-syncS-code,
+.false-asyncS-code {
+    margin-top: 2rem;
+    padding: 1.4rem 1.6rem;
+    border-radius: var(--radius-md);
+}
+
+/* ✔ Correct cases */
+
+.true-syncC-code,
+.true-asyncC-code {
+    border-left: 4px solid var(--accent-success);
+    background: rgba(63, 185, 80, 0.08);
+}
+
+/* ❌ Wrong cases */
+
+.false-syncS-code,
+.false-asyncS-code {
+    border-left: 4px solid var(--accent-error);
+    background: rgba(248, 81, 73, 0.08);
+}
+
+/* ================= ERROR HIGHLIGHT ================= */
+
+.error {
+    color: var(--accent-error);
+    font-weight: 600;
+    background: rgba(248, 81, 73, 0.15);
+    padding: 0.15rem 0.45rem;
+    border-radius: var(--radius-sm);
+}
+
+/* ================= STRONG / INFO ================= */
+
+strong {
+    color: var(--accent-info);
+}
+
+/* ================= INTERACTION POLISH ================= */
+
+.true-syncC-code,
+.true-asyncC-code,
+.false-syncS-code,
+.false-asyncS-code,
+code {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.true-syncC-code:hover,
+.true-asyncC-code:hover,
+.false-syncS-code:hover,
+.false-asyncS-code:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+/* ==========================================
+1.  GLOBAL VARIABLES (Scrollbar)
+========================================== */
+:root {
+    /* --- Sizing --- */
+    --sb-size: 6px;
+    --sb-radius: 999px;
+
+    /* --- Track (Dark) --- */
+    --sb-track-bg: linear-gradient(180deg, #0b0c10, #0e1018);
+
+    /* --- Thumb Gradient --- */
+    --sb-thumb-gradient: linear-gradient(180deg,
+        rgba(110, 120, 255, 0.85),
+        rgba(140, 90, 255, 0.85),
+        rgba(90, 160, 255, 0.85));
+
+    --sb-thumb-hover-gradient: linear-gradient(180deg,
+        rgba(130, 140, 255, 1),
+        rgba(160, 110, 255, 1),
+        rgba(110, 180, 255, 1));
+
+    --sb-thumb-active-gradient: linear-gradient(180deg,
+        rgba(160, 170, 255, 1),
+        rgba(190, 150, 255, 1),
+        rgba(140, 210, 255, 1));
+
+    /* --- Effects --- */
+    --sb-thumb-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.12),
+        0 4px 10px rgba(0, 0, 0, 0.45);
+
+    --sb-transition:
+        background 200ms ease,
+        opacity 200ms ease;
+}
+
+/* ==========================================
+3. WEBKIT SCROLLBAR BASE
+========================================== */
+::-webkit-scrollbar {
+    width: var(--sb-size);
+    height: var(--sb-size);
+}
+
+::-webkit-scrollbar-track {
+    background: var(--sb-track-bg);
+}
+
+/* ==========================================
+4. THUMB — DEFAULT STATE
+========================================== */
+::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-gradient);
+    border-radius: var(--sb-radius);
+    box-shadow: var(--sb-thumb-shadow);
+    transition: var(--sb-transition);
+}
+
+/* ==========================================
+5. INTERACTION STATES
+========================================== */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--sb-thumb-hover-gradient);
+}
+
+::-webkit-scrollbar-thumb:active {
+    background: var(--sb-thumb-active-gradient);
+}
+
+/* ==========================================
+6. AUTO-HIDE FEEL (DESKTOP ONLY)
+========================================== */
+@media (hover: hover) {
+    ::-webkit-scrollbar-thumb {
+        opacity: 0.6;
+    }
+
+    body:hover ::-webkit-scrollbar-thumb {
+        opacity: 1;
+    }
+}
