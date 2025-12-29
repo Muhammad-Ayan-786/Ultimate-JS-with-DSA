@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Request & Todo App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- First Page -->
+    <section id="first-page">
+        <h1 class="content-title">Post Request</h1>
+        <p class="content-info">To make a Post Request, we need to use fetch options.</p>
+
+        <div class="options-code-cont">
+            <h3>Fetch Options</h3>
+
+            <ul>
+                <li class="list-item"><span>method</span> - HTTP method , e.g. GET, POST, PUT, DELETE</li>
+                <li class="list-item"><span>body</span> - The request body.</li>
+            </ul>
+
+            <code>
+            let response = await fetch('/url', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: '{"name": "Ayan", "Language": "JavaScript"}'
+            });
+
+            let result = await response.json();
+        </code>
+        </div>
+
+        <div class="next-page-cont">
+            <button id="first-page-btn">Play With Todos</button>
+        </div>
+    </section>
+
+
+
+    <!-- Second Page -->
+    <section id="second-page" hidden>
+        <h1 class="todo-heading">Welcome to Todos App !</h1>
+        <p class="todo-info-para">You can create your Todos, and get some todos from the server by giving ID from (1 -
+            100)</p>
+
+        <div class="todos-container">
+            <!-- This section is for creating todo -->
+            <div class="create-todo-cont"> <!-- 50% Left-side page is for creating todo section -->
+
+                <div class="user-input-create-cont"> <!-- This div is for creating todo -->
+                    <h3>Create Todo</h3>
+                    <p>Fill the form to create a todo</p>
+                    <div class="create-todo-cont">
+                        <input autocomplete="off" type="text" id="todo-title" placeholder="Enter Todo Title" />
+                        <input autocomplete="off" type="text" id="todo-body" placeholder="Enter Todo Body" />
+                        <button id="create-todo-btn">Create Todo</button>
+                    </div>
+                </div>
+
+                <div class="show-create-todo-cont"> <!-- This div is for showing created todo -->
+                    <!-- Todo Box is creating Dynamically from Javascript -->
+                </div>
+            </div>
+
+            <!-- This section is for getting todo -->
+            <div class="get-todo-cont"> <!-- 50% right-side page is for getting todo section -->
+
+                <div class="user-input-get-cont"> <!-- This div is for getting todo -->
+                    <h3>Get Todo</h3>
+                    <p>Give any Todo ID to get a todo</p>
+                    <input autocomplete="off" type="number" id="todo-id" placeholder="Enter Todo ID (1 - 100)" />
+                    <button id="get-todo-btn">Get Todo</button>
+                </div>
+
+                <div class="show-get-todo-cont"> <!-- This div is for showing created todo -->
+                    <!-- Todo Box is creating Dynamically from Javascript -->
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="previous-page-cont">
+            <button id="second-page-btn">Go Back To Home</button>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+    <script src="get_create_todo.js"></script>
+
+</body>
+
+</html>

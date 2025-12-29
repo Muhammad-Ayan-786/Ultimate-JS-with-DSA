@@ -1,0 +1,324 @@
+/* ================= ROOT VARIABLES ================= */
+:root {
+    --bg-main: #05070f;
+    --bg-glass: rgba(18, 26, 64, 0.55);
+
+    --accent-1: #5df2c1;
+    --accent-2: #7aa2ff;
+    --accent-3: #ff7ad9;
+
+    --text-main: #eef3ff;
+    --text-muted: #c7d0ff;
+
+    --radius: 1.4rem;
+}
+
+/* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+/* ================= BODY ================= */
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(93, 242, 193, 0.18), transparent 45%),
+        radial-gradient(circle at 85% 75%, rgba(122, 162, 255, 0.18), transparent 45%),
+        linear-gradient(160deg, #040615, var(--bg-main));
+    color: var(--text-main);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 1.5rem;
+    gap: 3rem;
+}
+
+/* ================= HEADINGS ================= */
+h1,
+.content-title,
+.todo-heading {
+    font-size: 3.5rem;
+    letter-spacing: 0.15rem;
+    background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 25px #5df2c155, 0 0 45px #7aa2ff44;
+}
+
+h3 {
+    font-size: 2.8rem;
+    color: var(--accent-2);
+    margin-bottom: 1rem;
+}
+
+/* ================= PARAGRAPHS ================= */
+p {
+    font-size: 1.35rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+}
+
+/* ================= PAGE 1 ================= */
+#first-page {
+    max-width: 980px;
+    width: 100%;
+    padding: 2.5rem;
+    border-radius: 1.6rem;
+    background: var(--bg-glass);
+    box-shadow: 0 0 40px #000, inset 0 0 20px #000;
+    animation: fadeUp 0.7s ease both;
+}
+
+#first-page h1 {
+    margin-bottom: 0 0 1.5rem;
+}
+
+.options-code-cont {
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
+    margin: 2rem 0;
+}
+
+.options-code-cont ul {
+    list-style: none;
+    font-size: 1.35rem;
+    line-height: 1.8;
+    color: var(--text-muted);
+}
+
+.options-code-cont ul li span {
+    color: var(--accent-2);
+    text-shadow: 1px 1px 10px var(--accent-2);
+}
+
+.fetch-options {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+    padding: 1.6rem;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: var(--radius);
+    box-shadow: 0 0 25px #000, inset 0 0 15px #000;
+}
+
+/* .fetch-options code { */
+.options-code-cont code {
+    background: linear-gradient(135deg,
+            rgba(122, 162, 255, 0.12),
+            rgba(93, 242, 193, 0.12));
+    color: var(--accent-1);
+    padding: 1.4rem;
+    border-radius: 1.2rem;
+    font-size: 1rem;
+    line-height: 1.6;
+    display: block;
+    white-space: pre-wrap;
+}
+
+/* ================= PAGE 2 ================= */
+#second-page {
+    max-width: 1300px;
+    width: 100%;
+    padding: 2.5rem;
+    border-radius: 1.6rem;
+    background: var(--bg-glass);
+    box-shadow: 0 0 40px #000, inset 0 0 20px #000;
+    animation: fadeUp 0.7s ease both;
+}
+
+#second-page h1 {
+    margin: 0 0 1rem;
+}
+
+.todos-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin: 3rem 0 2.5rem;
+}
+
+.create-todo-cont,
+.get-todo-cont {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    padding: 1.8rem;
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.03);
+    box-shadow: 0 0 30px #000, inset 0 0 15px #000;
+}
+
+.user-input-create-cont p,
+.user-input-get-cont p {
+    margin-bottom: 1.5rem;
+}
+
+input {
+    padding: 1rem 1.2rem;
+    font-size: 1.1rem;
+    border-radius: var(--radius);
+    border: none;
+    outline: none;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-muted);
+    box-shadow: 0 0 15px #000, inset 0 0 8px #000;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+button {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: var(--radius);
+    background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-shadow: 0 0 12px #5df2c144;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 25px #5df2c144, inset 0 0 15px #000;
+}
+
+button:hover {
+    box-shadow: 0 0 50px var(--accent-2), 0 0 25px #000 inset;
+    transform: translateY(-2px);
+}
+
+/* ================= TODO BOXES ================= */
+.todo-box {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 1.6rem;
+    border-radius: var(--radius);
+    box-shadow: 0 0 35px #000, inset 0 0 20px #000;
+    margin-top: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.todo-box:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 50px var(--accent-1), inset 0 0 25px #000;
+}
+
+.todo-title {
+    color: var(--accent-2);
+    font-weight: 600;
+    position: relative;
+}
+
+.todo-title::after {
+    content: "";
+    background: linear-gradient(45deg, var(--accent-2) 30%, var(--text-muted), var(--bg-glass));
+    border-radius: 20px;
+    position: absolute;
+    width: 90%;
+    height: 5px;
+    bottom: -10px;
+    left: 0px;
+}
+
+.todo-desp {
+    color: var(--text-muted);
+}
+
+
+/* ================= ANIMATION ================= */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================
+1.  GLOBAL VARIABLES (Scrollbar)
+========================================== */
+:root {
+    /* --- Sizing --- */
+    --sb-size: 6px;
+    --sb-radius: 999px;
+
+    /* --- Track (Dark) --- */
+    --sb-track-bg: linear-gradient(180deg, #0b0c10, #0e1018);
+
+    /* --- Thumb Gradient --- */
+    --sb-thumb-gradient: linear-gradient(180deg,
+            rgba(110, 120, 255, 0.85),
+            rgba(140, 90, 255, 0.85),
+            rgba(90, 160, 255, 0.85));
+
+    --sb-thumb-hover-gradient: linear-gradient(180deg,
+            rgba(130, 140, 255, 1),
+            rgba(160, 110, 255, 1),
+            rgba(110, 180, 255, 1));
+
+    --sb-thumb-active-gradient: linear-gradient(180deg,
+            rgba(160, 170, 255, 1),
+            rgba(190, 150, 255, 1),
+            rgba(140, 210, 255, 1));
+
+    /* --- Effects --- */
+    --sb-thumb-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.12),
+        0 4px 10px rgba(0, 0, 0, 0.45);
+
+    --sb-transition:
+        background 200ms ease,
+        opacity 200ms ease;
+}
+
+/* ==========================================
+3. WEBKIT SCROLLBAR BASE
+========================================== */
+::-webkit-scrollbar {
+    width: var(--sb-size);
+    height: var(--sb-size);
+}
+
+::-webkit-scrollbar-track {
+    background: var(--sb-track-bg);
+}
+
+/* ==========================================
+4. THUMB — DEFAULT STATE
+========================================== */
+::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-gradient);
+    border-radius: var(--sb-radius);
+    box-shadow: var(--sb-thumb-shadow);
+    transition: var(--sb-transition);
+}
+
+/* ==========================================
+5. INTERACTION STATES
+========================================== */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--sb-thumb-hover-gradient);
+}
+
+::-webkit-scrollbar-thumb:active {
+    background: var(--sb-thumb-active-gradient);
+}
+
+/* ==========================================
+6. AUTO-HIDE FEEL (DESKTOP ONLY)
+========================================== */
+@media (hover: hover) {
+    ::-webkit-scrollbar-thumb {
+        opacity: 0.6;
+    }
+
+    body:hover ::-webkit-scrollbar-thumb {
+        opacity: 1;
+    }
+}
