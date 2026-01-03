@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h3>Local Storage</h3>
+    <p>Local Storage is a web API that allows you to store key-value pairs in the user's browser.</p>
+
+    <div class="methods">
+        <p>These are the methods provided by Local Storage :</p>
+
+        <ol>
+            <li><code class="method-list-code">setItem(key, value)</code> - Stores key-value pair</li>
+            <li><code class="method-list-code">getItem(key)</code> - Get the value by key</li>
+            <li><code class="method-list-code">removeItem(key)</code> - Remove the key-value pair</li>
+            <li><code class="method-list-code">clear()</code> - Delete everything</li>
+            <li><code class="method-list-code">key(index)</code> - Get the key on the given position</li>
+            <li><code class="method-list-code">length</code> - The number of stored items</li>
+        </ol>
+
+        <p>We can set & get value like an object</p>
+
+        <code class="obj-code">
+            localStorage.one = 1;
+            alert(localStorage.one);
+            delete localStorage.one;
+        </code>
+    </div>
+
+    <div class="important-note">
+        <p>1. Both key & value must be a string.</p>
+        <p>2. We can use the two JSON methods to store objects in localStorage :</p>
+
+        <span><code class="json-code">JSON.stringify(obj)</code> - Convert an object to a JSON string</span>
+        <br>
+        <span><code class="json-code">JSON.parse(str)</code> - Convert a string to an object (must be a valid JSON)</span>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
