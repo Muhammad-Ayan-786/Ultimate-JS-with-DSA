@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session Storage</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="session-storage">
+        <h3>Session Storage</h3>
+        <p>Used less often than local storage. Properties & methods are same as local storage. BUT :</p>
+
+        <p>1. The Session Storage exists only within the context browser tab. Another tab with same page will have a different storage.</p>
+
+        <p>2. The data survives page refreash, but not closing/opening the tab.</p>
+    </div>
+
+    <div class="storage-event">
+        <h3>Storage Event</h3>
+        <p>When the data gets updated in localSrorage or sessionStorage, storage event triggers with these properties :</p>
+
+        <ol>
+            <li>key - The key of the changed item</li>
+            <li>oldValue - The previous value of the item</li>
+            <li>newValue - The new value of the item</li>
+            <li>url - The URL of the page where the change occurred</li>
+            <li>storageArea - The storage area where the change occurred (localStorage/sessionStorage)</li>
+        </ol>
+
+        <p>We can listen the onstorage event of window which is triggered when updates are made to the same storage from other documents.</p>
+    </div>
+
+
+    <script src="script.js"></script>
+    
+</body>
+</html>
