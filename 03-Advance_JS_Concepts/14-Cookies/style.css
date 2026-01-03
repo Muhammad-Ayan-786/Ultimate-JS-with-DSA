@@ -1,0 +1,258 @@
+/* =========================
+   IMPORTING FONT
+========================= */
+
+/* Name: "Roboto Slab" | CSS : font-family: "Roboto Slab", "Segoe UI", Roboto, system-ui, sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+
+/* Name: "Poppins" | CSS : font-family: "Poppins", "Segoe UI", Roboto, system-ui, sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+/* ================= ROOT ================= */
+:root {
+    --bg-main: #05070f;
+    --bg-glass: rgba(18, 26, 64, 0.55);
+
+    --accent-1: #5df2c1;
+    --accent-2: #7aa2ff;
+    --accent-3: #ff7ad9;
+
+    --text-main: #eef3ff;
+    --text-muted: #c7d0ff;
+
+    --radius-lg: 1.6rem;
+    --radius-md: 1.2rem;
+}
+
+/* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    min-height: 100%;
+    font-family: "Poppins", "Roboto Slab", "Segoe UI", system-ui, sans-serif;
+}
+
+/* ================= BODY BACKGROUND ================= */
+body {
+    background:
+        radial-gradient(circle at 15% 20%, rgba(93, 242, 193, 0.18), transparent 45%),
+        radial-gradient(circle at 85% 80%, rgba(255, 122, 217, 0.18), transparent 45%),
+        linear-gradient(160deg, #040615, var(--bg-main));
+
+    color: var(--text-main);
+    padding: 3rem 1.5rem;
+}
+
+/* ================= MAIN LAYOUT ================= */
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+/* ================= CONTENT CARDS ================= */
+main > div {
+    background: var(--bg-glass);
+    border-radius: var(--radius-lg);
+    padding: 2.2rem;
+
+    box-shadow:
+        0 0 40px rgba(0, 0, 0, 0.7),
+        inset 0 0 20px rgba(0, 0, 0, 0.6);
+
+    animation: fadeUp 0.6s ease both;
+}
+
+/* ================= HEADINGS ================= */
+h3 {
+    font-size: 2.3rem;
+    margin-bottom: 1.2rem;
+
+    background: linear-gradient(
+        90deg,
+        var(--accent-1),
+        var(--accent-2)
+    );
+    background-clip: text;
+    color: transparent;
+
+    letter-spacing: 0.08rem;
+    text-shadow:
+        0 0 20px rgba(93, 242, 193, 0.4),
+        0 0 40px rgba(122, 162, 255, 0.3);
+}
+
+/* ================= PARAGRAPHS ================= */
+p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-muted);
+    margin-bottom: 1.1rem;
+}
+
+/* ================= INLINE CODE ================= */
+code {
+    display: inline-block;
+    margin-top: 0.6rem;
+
+    background: linear-gradient(
+        135deg,
+        rgba(122, 162, 255, 0.15),
+        rgba(93, 242, 193, 0.15)
+    );
+
+    color: var(--accent-1);
+    padding: 0.5rem 0.8rem;
+    border-radius: 0.8rem;
+    font-size: 0.95rem;
+
+    box-shadow:
+        0 0 20px rgba(93, 242, 193, 0.25),
+        inset 0 0 12px rgba(0, 0, 0, 0.6);
+}
+
+/* ================= SPAN HIGHLIGHTS ================= */
+span {
+    color: var(--accent-3);
+    font-weight: 600;
+    text-shadow: 0 0 12px rgba(255, 122, 217, 0.5);
+}
+
+/* ================= NOTE SECTION ================= */
+.note {
+    margin-top: 1.4rem;
+    padding: 1.4rem;
+
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: var(--radius-md);
+
+    box-shadow:
+        0 0 25px rgba(0, 0, 0, 0.6),
+        inset 0 0 15px rgba(0, 0, 0, 0.6);
+}
+
+.note p {
+    margin-bottom: 0.6rem;
+    font-size: 1.1rem;
+}
+
+/* ================= SECTION DIFFERENTIATION ================= */
+.cookie {
+    border-left: 4px solid var(--accent-1);
+}
+
+.encodeURIComponent {
+    border-left: 4px solid var(--accent-2);
+}
+
+.decodeURIComponent {
+    border-left: 4px solid var(--accent-3);
+}
+
+.cookie-options {
+    border-left: 4px solid var(--accent-1);
+}
+
+/* ================= ANIMATION ================= */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================
+1.  GLOBAL VARIABLES (Scrollbar)
+========================================== */
+:root {
+    /* --- Sizing --- */
+    --sb-size: 6px;
+    --sb-radius: 999px;
+
+    /* --- Track (Dark) --- */
+    --sb-track-bg: linear-gradient(180deg, #0b0c10, #0e1018);
+
+    /* --- Thumb Gradient --- */
+    --sb-thumb-gradient: linear-gradient(180deg,
+        rgba(110, 120, 255, 0.85),
+        rgba(140, 90, 255, 0.85),
+        rgba(90, 160, 255, 0.85));
+
+    --sb-thumb-hover-gradient: linear-gradient(180deg,
+        rgba(130, 140, 255, 1),
+        rgba(160, 110, 255, 1),
+        rgba(110, 180, 255, 1));
+
+    --sb-thumb-active-gradient: linear-gradient(180deg,
+        rgba(160, 170, 255, 1),
+        rgba(190, 150, 255, 1),
+        rgba(140, 210, 255, 1));
+
+    /* --- Effects --- */
+    --sb-thumb-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.12),
+        0 4px 10px rgba(0, 0, 0, 0.45);
+
+    --sb-transition:
+        background 200ms ease,
+        opacity 200ms ease;
+}
+
+/* ==========================================
+3. WEBKIT SCROLLBAR BASE
+========================================== */
+::-webkit-scrollbar {
+    width: var(--sb-size);
+    height: var(--sb-size);
+}
+
+::-webkit-scrollbar-track {
+    background: var(--sb-track-bg);
+}
+
+/* ==========================================
+4. THUMB — DEFAULT STATE
+========================================== */
+::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-gradient);
+    border-radius: var(--sb-radius);
+    box-shadow: var(--sb-thumb-shadow);
+    transition: var(--sb-transition);
+}
+
+/* ==========================================
+5. INTERACTION STATES
+========================================== */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--sb-thumb-hover-gradient);
+}
+
+::-webkit-scrollbar-thumb:active {
+    background: var(--sb-thumb-active-gradient);
+}
+
+/* ==========================================
+6. AUTO-HIDE FEEL (DESKTOP ONLY)
+========================================== */
+@media (hover: hover) {
+    ::-webkit-scrollbar-thumb {
+        opacity: 0.6;
+    }
+
+    body:hover ::-webkit-scrollbar-thumb {
+        opacity: 1;
+    }
+}

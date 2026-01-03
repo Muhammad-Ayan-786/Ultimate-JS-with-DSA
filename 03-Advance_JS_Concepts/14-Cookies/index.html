@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookies</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main>
+        <div class="cookie">
+            <h3>Cookies</h3>
+            <p>A cookie is a small text file that is downloaded to your computer when you visit a website. It contains
+                information that is necessary for the website to function properly.</p>
+
+            <p>Cookie are set by a Web server using the Set-Cookie HTTP-header. Next time when the request is sent to
+                the same domain, the browser sent the cookie using the Cookie HTTP-header. The way the server knows who
+                sent the request.</p>
+
+            <p>
+                Cookie are small strings of data stored directly in the user's browser.
+                <br>
+                In JavaScript, document.cookie provide access to cookies.
+            </p>
+
+            <p>
+                Property : <code>alert(document.cookie)</code>
+                <br>
+                <span>
+                    NOTE : Contains key = value pairs
+                    <br>
+                    Delimited by a semicolon ';'
+                </span>
+            </p>
+        </div>
+
+        <div class="encodeURIComponent">
+            <h3>encodeURIComponent</h3>
+            <p>This function helps to keep the valid formation. It is used like this :</p>
+
+            <p>
+                <code>document.cookie = `${encodeURIComponent(key)} = ${encodeURIComponent(value)}`;</code>
+            </p>
+
+            <p>This way, especial characters are encoded.</p>
+        </div>
+
+        <div class="decodeURIComponent">
+            <h3>decodeURIComponent</h3>
+            <p>This function helps to decode the encoded string.</p>
+
+            <p>
+                <code>console.log(decodeURIComponent("4%3Dfgd5=69v%3B60%2F3"));</code>
+            </p>
+
+            <p>This way, especial characters are decoded.</p>
+        </div>
+
+        <div class="cookie-options">
+            <p>Cookies have several options which can be provided after key=value to a set call like this :</p>
+
+            <p>
+                <code>document.cookie = "user = Ayan; path = /a; expires = Thu, 18 Dec 2022 12:00:00 UTC";</code>
+            </p>
+
+            <p>path options makes the cookie visible at /a, /a/b etc. expires sets the cookie expiration date.</p>
+
+            <div class="note">
+                <p>1. The name=value pair, after encodeURIComponent, should not exceed 4kb.</p>
+                <p>2. Total number of cookies per domain is limited to around 20+ (Exact number is browser dependent)</p>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
