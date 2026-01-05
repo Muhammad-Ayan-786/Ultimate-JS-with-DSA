@@ -1,0 +1,279 @@
+/* =========================
+   IMPORTING FONT
+========================= */
+
+/* Name: "Roboto Slab" | CSS : font-family: "Roboto Slab", "Segoe UI", Roboto, system-ui, sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+
+/* Name: "Poppins" | CSS : font-family: "Poppins", "Segoe UI", Roboto, system-ui, sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+/* ===================== ROOT ===================== */
+:root {
+    --bg-main: #060816;
+    --glass: rgba(18, 24, 60, 0.55);
+
+    --blue: #7aa2ff;
+    --purple: #a88bff;
+    --cyan: #5df2c1;
+    --pink: #ff7ad9;
+
+    --text-main: #eef1ff;
+    --text-muted: #c7ceff;
+
+    --radius-lg: 1.6rem;
+    --radius-md: 1.1rem;
+}
+
+/* ===================== RESET ===================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    min-height: 100%;
+    font-family: "Poppins", "Roboto Slab", "Segoe UI", system-ui, sans-serif;
+}
+
+/* ===================== BODY BACKGROUND ===================== */
+body {
+    background:
+        radial-gradient(circle at 15% 20%, rgba(122, 162, 255, 0.22), transparent 45%),
+        radial-gradient(circle at 85% 75%, rgba(168, 139, 255, 0.22), transparent 45%),
+        linear-gradient(160deg, #040512, var(--bg-main));
+
+    color: var(--text-main);
+    padding: 3.5rem 1.8rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+}
+
+/* ===================== SECTION BASE ===================== */
+.destructuring,
+.spread-syntax {
+    max-width: 1100px;
+    margin-inline: auto;
+
+    background: var(--glass);
+    padding: 3.2rem 3.6rem;
+    border-radius: var(--radius-lg);
+
+    box-shadow:
+        0 0 45px rgba(0, 0, 0, 0.75),
+        inset 0 0 20px rgba(0, 0, 0, 0.65);
+}
+
+/* ===================== SECTION DIFFERENTIATION ===================== */
+.destructuring {
+    border-left: 6px solid var(--blue);
+}
+
+.spread-syntax {
+    border-left: 6px solid var(--purple);
+}
+
+/* ===================== HEADINGS ===================== */
+h1 {
+    font-size: 2.4rem;
+    letter-spacing: 0.12rem;
+    margin-bottom: 1.6rem;
+
+    background: linear-gradient(
+        90deg,
+        var(--blue),
+        var(--purple)
+    );
+    background-clip: text;
+    color: transparent;
+
+    text-shadow:
+        0 0 30px rgba(122, 162, 255, 0.4);
+}
+
+.spread-syntax h1 {
+    background: linear-gradient(
+        90deg,
+        var(--purple),
+        var(--pink)
+    );
+    background-clip: text;
+}
+
+/* ===================== PARAGRAPHS ===================== */
+p {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--text-muted);
+    margin-bottom: 1.6rem;
+}
+
+/* ===================== CODE BLOCKS ===================== */
+code {
+    display: block;
+    margin: 1.8rem 0 2.2rem;
+    padding: 1.6rem 1.9rem;
+
+    white-space: pre-wrap;
+    font-size: 0.95rem;
+    line-height: 1.75;
+
+    border-radius: var(--radius-md);
+
+    background: linear-gradient(
+        135deg,
+        rgba(122, 162, 255, 0.18),
+        rgba(168, 139, 255, 0.18)
+    );
+
+    color: var(--cyan);
+
+    box-shadow:
+        0 0 30px rgba(122, 162, 255, 0.25),
+        inset 0 0 18px rgba(0, 0, 0, 0.7);
+}
+
+/* ===================== COMMENTS INSIDE CODE ===================== */
+.comment {
+    color: #9aa6ff;
+    opacity: 0.9;
+    font-style: italic;
+}
+
+/* ===================== MDN BOX ===================== */
+.mdn-destructuring {
+    margin-top: 2.8rem;
+    padding: 1.8rem 2.2rem;
+
+    border-radius: var(--radius-md);
+
+    background: linear-gradient(
+        135deg,
+        rgba(255, 122, 217, 0.16),
+        rgba(122, 162, 255, 0.16)
+    );
+
+    box-shadow:
+        0 0 25px rgba(255, 122, 217, 0.25);
+}
+
+.mdn-destructuring h3 {
+    margin-bottom: 0.6rem;
+    color: var(--pink);
+    letter-spacing: 0.08rem;
+}
+
+.mdn-destructuring a {
+    color: var(--blue);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.mdn-destructuring a:hover {
+    text-decoration: underline;
+}
+
+/* ===================== SUBTLE ANIMATION ===================== */
+.destructuring,
+.spread-syntax {
+    animation: fadeUp 0.6s ease both;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================
+1.  GLOBAL VARIABLES (Scrollbar)
+========================================== */
+:root {
+    /* --- Sizing --- */
+    --sb-size: 6px;
+    --sb-radius: 999px;
+
+    /* --- Track (Dark) --- */
+    --sb-track-bg: linear-gradient(180deg, #0b0c10, #0e1018);
+
+    /* --- Thumb Gradient --- */
+    --sb-thumb-gradient: linear-gradient(180deg,
+        rgba(110, 120, 255, 0.85),
+        rgba(140, 90, 255, 0.85),
+        rgba(90, 160, 255, 0.85));
+
+    --sb-thumb-hover-gradient: linear-gradient(180deg,
+        rgba(130, 140, 255, 1),
+        rgba(160, 110, 255, 1),
+        rgba(110, 180, 255, 1));
+
+    --sb-thumb-active-gradient: linear-gradient(180deg,
+        rgba(160, 170, 255, 1),
+        rgba(190, 150, 255, 1),
+        rgba(140, 210, 255, 1));
+
+    /* --- Effects --- */
+    --sb-thumb-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.12),
+        0 4px 10px rgba(0, 0, 0, 0.45);
+
+    --sb-transition:
+        background 200ms ease,
+        opacity 200ms ease;
+}
+
+/* ==========================================
+3. WEBKIT SCROLLBAR BASE
+========================================== */
+::-webkit-scrollbar {
+    width: var(--sb-size);
+    height: var(--sb-size);
+}
+
+::-webkit-scrollbar-track {
+    background: var(--sb-track-bg);
+}
+
+/* ==========================================
+4. THUMB — DEFAULT STATE
+========================================== */
+::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-gradient);
+    border-radius: var(--sb-radius);
+    box-shadow: var(--sb-thumb-shadow);
+    transition: var(--sb-transition);
+}
+
+/* ==========================================
+5. INTERACTION STATES
+========================================== */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--sb-thumb-hover-gradient);
+}
+
+::-webkit-scrollbar-thumb:active {
+    background: var(--sb-thumb-active-gradient);
+}
+
+/* ==========================================
+6. AUTO-HIDE FEEL (DESKTOP ONLY)
+========================================== */
+@media (hover: hover) {
+    ::-webkit-scrollbar-thumb {
+        opacity: 0.6;
+    }
+
+    body:hover ::-webkit-scrollbar-thumb {
+        opacity: 1;
+    }
+}

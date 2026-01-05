@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destructuring assignment & Spread Operator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="destructuring">
+        <h1>Destructuring assignment & Spread Operator</h1>
+        <p>Destructuring assignment is a feature in JavaScript that allows you to extract values from arrays or objects and assign them to variables.</p>
+
+        <code id="arr_destructuring">
+            let [x, y] = [1, 2];
+            <span class="comment">// x will be assigned 1 & y will be assigned 2</span>
+
+            let [ , x, ...rest] = [10, 80, 7, 11, 21, 88]
+            <span class="comment">// x will be 80    rest will be [7, 11, 21, 88]</span>
+        </code>
+
+        <p>Similarly we can destructure objects on the left hand side of the assignment.</p>
+
+        <code id="obj_destructuring">
+            const obj = {a:1 , b:2}
+            const {a,b} = obj
+            <span class="comment">// a will be 1 & b will be 2</span>
+        </code>
+
+        <p>Some more examples can be found on MDN Docs.</p>
+
+        <div class="mdn-destructuring">
+            <h3>MDN Docs (Destructuring)</h3>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring" target="_blank">MDN Docs Link</a>
+        </div>
+    </div>
+
+    <div class="spread-syntax">
+        <h1>Spread Operator</h1>
+        <p>Spread operator is a feature in JavaScript that allows you to expand arrays or objects into individual elements.</p>
+
+        <code id="spread_syntax">
+            let arr1 = [1, 2];
+            let arr2 = [3, 4];
+            let arr3 = [...arr1, ...arr2];
+            <span class="comment">// arr3 will be [1, 2, 3, 4]</span>
+
+            let arr2 = [1, 7, 11];
+            let obj = { ...arr2 };
+            <span class="comment">// obj will be {0:1, 1:7, 2:11}</span>
+
+            let nums = [3, 5, 6];
+            console.log(sum(...nums));
+            <span class="comment">// sum will be 14</span>
+        </code>
+
+        <p>Other examples can be found on MDN Docs.</p>
+
+        <div class="mdn-destructuring">
+            <h3>MDN Docs (Spread Syntax)</h3>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax" target="_blank">MDN Docs Link</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
