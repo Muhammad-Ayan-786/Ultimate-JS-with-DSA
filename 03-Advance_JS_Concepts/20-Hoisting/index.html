@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoisting</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Hoisting</h1>
+    <p>Hoisting refers to the process whereby the interpreter appears to move the declaration to the top of the code before execution.</p>
+
+    <p>Variable can thus be referenced before they are declared in JavaScript.</p>
+
+    <p><span class="imp-note">Important Note : </span>JavaScript only hoists declarations, not initializations. The variable will be undefined until the line where it is declared is executed.</p>
+
+    <h2>Hoisting in Action</h2>
+    <code class="hoistion-code">
+        <span class="comment">/* Example */</span>
+
+        hello("Ayan");      <span class="comment">// Works ! </span>
+
+        function hello(name) {
+            ...
+        }
+    </code>
+
+    <h2>Actual Hoisting Under the Hood</h2>
+    <code class="acctually-hoisting">
+        <span class="comment">// Code</span>
+        console.log(x);
+        var x = 10;
+        console.log(x);
+
+        <span class="comment">// JavaScript Engine</span>
+        var x;
+        console.log(x); <span class="comment">// undefined</span>
+        x = 10;
+        console.log(x); <span class="comment">// 10</span>
+
+        <span class="comment">// NOTE : DECLARATION HOISTED TO THE TOP BUT INITIALIZATION IS NOT</span>
+    </code>
+
+    <h2>Hoisting will const/let & var</h2>
+
+    <p>With let & var, hoisting is different.</p>
+
+    <code class="let-hoisting">
+        <span class="comment">/* Example */</span>
+        console.log(num);        <span class="comment">// Error if let or const
+                                 With var undefined will print</span>
+        let num = 6;
+    </code>
+
+    <p>Function expression and class expression are not hoisted</p>
+
+    <script src="script.js"></script>
+</body>
+</html>
