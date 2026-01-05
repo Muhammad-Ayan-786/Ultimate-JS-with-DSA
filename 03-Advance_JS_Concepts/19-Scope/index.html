@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scope</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h3>Scope</h3>
+    <p>Scope refers to the visibility and accessibility of variables, functions, and other elements in a program. It determines what parts of a program can access and modify the variables.</p>
+
+    <p>There are three types of scope in JavaScript:</p>
+    <ul>
+        <li>Global Scope</li>
+        <li>Funtion Scope</li>
+        <li>Block Scope</li>
+    </ul>
+
+    <p>Global Scope : The variables declared outside of any function or block are called global scope. They are accessible from anywhere in the program.</p>
+
+    <p>Function Scope : The variables declared inside a function are called function scope. They are only accessible within that function.</p>
+
+    <p>Block Scope : The variables declared inside a block are called block scope. They are only accessible within that block.</p>
+
+    <p><span>let</span> & <span>const</span> provide block level scope which means that the variables declared inside a <span>{ }</span> cannot be accessed from outside the block.</p>
+
+    <code>
+        {
+            let a = 8;
+        }
+        <span class="comment">// a is not available here</span>
+
+        console.log(a); <span class="comment">// ReferenceError: a is not defined</span>
+    </code>
+
+    <p>Variables declared within a JavaScript function, become local to the function.</p>
+
+    <p>A variable declared outside of a function, becomes global.</p>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
