@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closures in JavaScript</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="closures">
+
+        <h1>Closures in JavaScript</h1>
+        <p>
+            A <strong>closure</strong> is created when a function
+            remembers variables from its outer (lexical) scope,
+            even after the outer function has finished execution.
+        </p>
+
+        <section>
+            <h3>What is a Closure?</h3>
+            <p>
+                In simple words, a closure allows a function
+                to access variables defined outside of it.
+            </p>
+
+            <p>A closure consists of:</p>
+            <ul>
+                <li>A function</li>
+                <li>Its lexical environment</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Simple Closure Example</h3>
+
+            <p>
+                In the example below, the inner function
+                remembers the variable from the outer function.
+            </p>
+
+            <pre>
+                <code>
+                    function createCounter() {
+                        let count = 0;
+
+                        return function () {
+                            count++;
+                            console.log(count);
+                        };
+                    }
+
+                    const counter = createCounter();
+                    counter(); // 1
+                    counter(); // 2
+                    counter(); // 3
+                </code>
+            </pre>
+
+            <p>
+                Even after <code>createCounter()</code> finishes,
+                the returned function still has access to
+                the <code>count</code> variable.
+            </p>
+        </section>
+
+        <section>
+            <h3>Why Closures Are Useful</h3>
+            <ul>
+                <li>They allow data privacy</li>
+                <li>They help manage state</li>
+                <li>They avoid global variables</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Common Use Cases</h3>
+            <ul>
+                <li>Event handlers</li>
+                <li>Callbacks</li>
+                <li>Timers (<code>setTimeout</code>)</li>
+                <li>Function factories</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Interview Definition</h3>
+            <blockquote>
+                A closure is a function bundled together with its
+                lexical environment, allowing it to access variables
+                from its parent scope even after execution.
+            </blockquote>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
