@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrow Functions in JavaScript</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="arrow-functions">
+
+        <h1>Arrow Functions in JavaScript</h1>
+
+        <p>
+            Arrow functions provide a shorter syntax for writing functions.
+            They also behave differently with <code>this</code> compared to
+            regular functions.
+        </p>
+
+        <section>
+            <h3>Basic Syntax</h3>
+            <p>Classical arrow function:</p>
+            <pre><code>
+                const sayHello = () => {
+                    console.log("Hello");
+                };
+                sayHello();
+                            </code></pre>
+
+                            <p>Single-line arrow function:</p>
+                            <pre><code>
+                const sayHello2 = () => console.log("Hello");
+                sayHello2();
+            </code></pre>
+        </section>
+
+        <section>
+            <h3>Parameters</h3>
+            <p>Single parameter (no parentheses needed):</p>
+            <pre><code>
+                const greet = name => console.log(`Hello ${name}`);
+                greet("Ayan");
+                            </code></pre>
+
+                            <p>Multiple parameters (parentheses required):</p>
+                            <pre><code>
+                const greetFullName = (firstName, lastName) =>
+                    console.log(`Hello ${firstName} ${lastName}`);
+                greetFullName("Mohammad", "Ayan");
+                            </code></pre>
+
+                            <p>Default parameter:</p>
+                            <pre><code>
+                const greetGuest = (name = "Guest") => console.log(`Hello ${name}`);
+                greetGuest();
+                greetGuest("Ayan");
+            </code></pre>
+        </section>
+
+        <section>
+            <h3>The <code>this</code> Keyword</h3>
+            <p>
+                - Arrow functions do NOT have their own <code>this</code>.<br>
+                - They inherit <code>this</code> from the parent scope (lexical <code>this</code>).<br>
+                - Regular functions do have their own <code>this</code>.
+            </p>
+
+            <p>Example:</p>
+            <pre><code>
+                const obj = {
+                    name: "Ayan",
+                    role: "JS Developer",
+                    show: function() {
+                        setTimeout(() => {
+                            console.log(this.name); // "Ayan"
+                        }, 1000);
+                    }
+                };
+                obj.show();
+            </code></pre>
+        </section>
+
+        <section>
+            <h3>Key Points to Remember</h3>
+            <ul>
+                <li>Arrow functions provide shorter syntax</li>
+                <li>Do NOT have their own <code>this</code></li>
+                <li>Good for callbacks, timers, and functional programming</li>
+                <li>Not suitable as object methods if <code>this</code> is needed</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
