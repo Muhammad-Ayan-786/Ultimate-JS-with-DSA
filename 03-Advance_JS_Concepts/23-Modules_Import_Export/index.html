@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Modules — CommonJS & ES6</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Sticky Beautiful Top Nav -->
+    <nav class="docs-navbar">
+        <span class="docs-navbar__title">
+            <svg height="28" style="transform: translateY(4px);margin-right:12px;" viewBox="0 0 32 32">
+                <defs>
+                    <linearGradient id="gr1" x1="0" x2="1" y1="0" y2="1">
+                        <stop stop-color="#4da3ff" />
+                        <stop offset="1" stop-color="#9b7bff" />
+                    </linearGradient>
+                </defs>
+                <circle cx="16" cy="16" r="15" fill="url(#gr1)" /><text x="16" y="20.5" text-anchor="middle"
+                    font-family="Poppins,Segoe UI,sans-serif" font-size="15" fill="#fff" font-weight="700">JS</text>
+            </svg>
+            JavaScript Modules <span class="docs-navbar__label">Docs</span>
+        </span>
+        <span class="docs-navbar__right"></span>
+    </nav>
+
+    <main>
+        <h1>JavaScript Modules</h1>
+        <section class="card-section hero">
+            <p class="hero-desc">
+                Modules allow us to split our JavaScript code into multiple files,
+                making it <strong>cleaner, reusable, and easier to maintain</strong>.
+            </p>
+        </section>
+
+        <section class="card-section">
+            <h2>1️⃣ Why Modules?</h2>
+            <ul>
+                <li>Avoid huge single JS files</li>
+                <li>Reuse code across projects</li>
+                <li>Prevent global variable conflicts</li>
+                <li>Write scalable applications</li>
+            </ul>
+        </section>
+
+        <section class="card-section">
+            <h2>2️⃣ CommonJS Modules (Node.js)</h2>
+
+            <p>
+                CommonJS is mainly used in <strong>Node.js</strong>.
+                It uses <code>module.exports</code> and <code>require()</code>.
+            </p>
+
+            <div class="codecard">
+                <div class="codecard__header">Export (CommonJS)</div>
+                <pre><code>const hello = () => {
+    console.log("Hello");
+};
+
+const greet = (name) => {
+    console.log(`Hello ${name}`);
+};
+
+module.exports = { hello, greet };</code></pre>
+            </div>
+
+            <div class="codecard">
+                <div class="codecard__header">Import (CommonJS)</div>
+                <pre><code>const { hello, greet } = require("./script.js");
+
+hello();
+greet("Ayan");</code></pre>
+            </div>
+
+            <div class="note">
+                <strong>Golden Rules (CommonJS):</strong>
+                <ul>
+                    <li>You can export ONE thing using <code>module.exports</code></li>
+                    <li>Multiple values must be wrapped in an object</li>
+                    <li>Uses <code>require()</code> to import</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="card-section">
+            <h2>3️⃣ ES Modules (Modern JavaScript)</h2>
+
+            <p>
+                ES Modules (ES6) are the modern standard.
+                They work in <strong>browsers</strong> and <strong>Node.js</strong>.
+            </p>
+
+            <div class="codecard">
+                <div class="codecard__header">Named Export</div>
+                <pre><code>export const hello = (name) => {
+    console.log(`Hello ${name}`);
+};
+
+export const bye = (name) => {
+    console.log(`Bye ${name}`);
+};</code></pre>
+            </div>
+            <div class="codecard">
+                <div class="codecard__header">Named Import</div>
+                <pre><code>import { hello, bye } from "./script.js";
+
+hello("Ayan");
+bye("Ayan");</code></pre>
+            </div>
+
+            <div class="note">
+                <strong>Named Export Rules:</strong>
+                <ul>
+                    <li>Can export MANY things</li>
+                    <li>Import MUST use the SAME names</li>
+                    <li>Must be inside <code>{ }</code></li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="card-section">
+            <h2>4️⃣ Default Export (Single)</h2>
+            <div class="codecard">
+                <div class="codecard__header">Export (Default)</div>
+                <pre><code>const sayHello = () => {
+    console.log("Hello World");
+};
+
+export default sayHello;
+</code></pre>
+            </div>
+            <div class="codecard">
+                <div class="codecard__header">Import (Default)</div>
+                <pre><code>import anyNameYouWant from "./script.js";
+
+anyNameYouWant();</code></pre>
+            </div>
+            <div class="note">
+                <strong>Default Export Rules:</strong>
+                <ul>
+                    <li>ONLY ONE default export per file</li>
+                    <li>Import name can be ANYTHING</li>
+                    <li>No <code>{ }</code> needed</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="card-section">
+            <h2>5️⃣ Default Export with Multiple Values</h2>
+            <p>
+                If you want to default-export MORE THAN ONE thing,
+                you must wrap them inside an object.
+            </p>
+            <div class="codecard">
+                <div class="codecard__header">Export</div>
+                <pre><code>const hello = (name) => console.log(`Hello ${name}`);
+const bye = (name) => console.log(`Bye ${name}`);
+
+export default { hello, bye };</code></pre>
+            </div>
+            <div class="codecard">
+                <div class="codecard__header">Import</div>
+                <pre><code>import myFuncs from "./script.js";
+
+myFuncs.hello("Ayan");
+myFuncs.bye("Ayan");</code></pre>
+            </div>
+            <div class="codecard">
+                <div class="codecard__header">Destructuring Default Object</div>
+                <pre><code>import myFuncs from "./script.js";
+
+const { hello, bye } = myFuncs;
+
+hello("Ayan");
+bye("Ayan");</code></pre>
+            </div>
+        </section>
+
+        <section class="card-section">
+            <h2>6️⃣ ❌ Common Mistakes</h2>
+            <div class="warning">
+                ❌ This will NOT work:
+                <pre><code>import { hello } from "./script.js"; // when hello is default export</code></pre>
+                ❌ This will NOT work:
+                <pre><code>import hello from "./script.js"; // when hello is named export</code></pre>
+            </div>
+        </section>
+
+        <section class="card-section">
+            <h2>7️⃣ Golden Rules (FINAL)</h2>
+            <pre><code>Named Export    → import { sameName }
+Default Export  → import anyName
+Default Object  → import obj → obj.prop</code></pre>
+        </section>
+
+        <section class="card-section">
+            <h2>8️⃣ Browser Note</h2>
+            <p>
+                To use ES Modules in HTML, always write:
+            </p>
+            <pre><code>&lt;script type="module" src="script.js"&gt;&lt;/script&gt;</code></pre>
+            <div class="note">
+                Without <code>type="module"</code>, ES imports will NOT work in browsers.
+            </div>
+        </section>
+
+        <section class="final-tip">
+            <h2>🎯 Final Tip</h2>
+            <p>
+                If you understand:
+                <br>
+                <strong>Named vs Default</strong>
+                <br>
+                <strong>Object default export</strong>
+                <br><br>
+                You understand <strong>90% of JS Modules</strong>.
+            </p>
+        </section>
+        <footer>
+            <div class="footer-text">📝 More topics available soon! &nbsp; &copy; 2026 Ultimate JS with DSA</div>
+        </footer>
+    </main>
+
+
+    <!--
+    ---------- Common JS Modules (Only for Node.js) ----------
+    <script src="script_1.js"></script>
+    <script src="script_2.js"></script>
+    -->
+
+    <!-- ES6 Modules -->
+    <script type="module" src="script_3.js"></script>
+    <script type="module" src="script_4.js"></script>
+
+</body>
+
+</html>
